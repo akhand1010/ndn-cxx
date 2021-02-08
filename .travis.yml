@@ -5,9 +5,9 @@ dist: bionic
 
 arch:
   - amd64
-  - arm64
-  - ppc64le
-  - s390x
+  - arm64-graviton2
+virt: lxd
+group: edge
 
 env:
   - COMPILER=g++-7
@@ -29,25 +29,46 @@ jobs:
     - env: COMPILER=clang++-11
     - env: COMPILER=clang++-12
 
-    # macOS
-    - os: osx
-      osx_image: xcode9.4
-      env: # default compiler
-    - os: osx
-      osx_image: xcode10.1
-      env: # default compiler
-    - os: osx
-      osx_image: xcode10.3
-      env: # default compiler
-    - os: osx
-      osx_image: xcode11.3
-      env: # default compiler
-    - os: osx
-      osx_image: xcode11.6
-      env: # default compiler
-    - os: osx
-      osx_image: xcode12
-      env: # default compiler
+    - env: COMPILER=g++-5
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+    - env: COMPILER=g++-6
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+    - env: COMPILER=g++-8
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+    - env: COMPILER=clang++-4.0
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+    - env: COMPILER=clang++-5.0
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+    - env: COMPILER=clang++-7
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+    - env: COMPILER=clang++-8
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+    - env: COMPILER=clang++-10
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+    - env: COMPILER=clang++-11
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+    - env: COMPILER=clang++-12
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
 
   allow_failures:
     - env: COMPILER=g++-5
